@@ -198,6 +198,283 @@ body {
     line-height: 1.6;
 }
 
+/* Astrotherapy Section */
+.astrotherapy-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, rgba(157, 78, 221, 0.05) 0%, rgba(60, 9, 108, 0.05) 100%);
+}
+
+.astrotherapy-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 60px;
+    background: var(--gradient-3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.astrotherapy-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.astrotherapy-text h3 {
+    color: var(--accent-light);
+    margin: 20px 0 15px 0;
+    font-family: 'Playfair Display', serif;
+}
+
+.astrotherapy-text p {
+    color: #d0d0d0;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.benefits-list {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.benefits-list li {
+    color: #d0d0d0;
+    margin: 10px 0;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.read-more-btn {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-light) 100%);
+    color: #1a1a2e;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1rem;
+}
+
+.read-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+}
+
+.astrotherapy-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.astro-circle-large {
+    width: 250px;
+    height: 250px;
+    border: 3px solid var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(157, 78, 221, 0.2) 100%);
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.circle-text {
+    font-size: 4rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border: 2px solid var(--accent-color);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 700px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 50px rgba(212, 175, 55, 0.3);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    font-size: 2rem;
+    cursor: pointer;
+    float: right;
+    transition: color 0.3s ease;
+    margin-top: -10px;
+}
+
+.modal-close:hover {
+    color: var(--accent-light);
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 20px;
+}
+
+.modal-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    background: var(--gradient-3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+}
+
+.modal-subtitle {
+    color: #d0d0d0;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.modal-body {
+    margin: 30px 0;
+}
+
+.modal-section {
+    margin-bottom: 25px;
+}
+
+.modal-section h3 {
+    color: var(--accent-light);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.modal-section p {
+    color: #d0d0d0;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.modal-highlight {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(157, 78, 221, 0.1) 100%);
+    border-left: 4px solid var(--accent-color);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+    text-align: center;
+}
+
+.modal-highlight p {
+    color: #f4d03f;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.modal-benefits {
+    background: rgba(157, 78, 221, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+}
+
+.modal-benefits h3 {
+    color: var(--accent-light);
+    margin-bottom: 15px;
+}
+
+.modal-benefits ul {
+    list-style: none;
+}
+
+.modal-benefits li {
+    color: #d0d0d0;
+    padding: 8px 0;
+    line-height: 1.6;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid var(--accent-color);
+}
+
+.modal-whatsapp-btn {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.modal-whatsapp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+}
+
+.modal-close-btn {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-light) 100%);
+    color: #1a1a2e;
+    padding: 12px 30px;
+    border-radius: 25px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-close-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+}
+
 /* Booking Section */
 .booking-section {
     padding: 80px 0;
@@ -337,6 +614,200 @@ body {
     margin-bottom: 20px;
 }
 
+/* Reviews Section */
+.reviews-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, rgba(157, 78, 221, 0.05) 0%, rgba(60, 9, 108, 0.05) 100%);
+}
+
+.reviews-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 60px;
+    background: var(--gradient-3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.add-review-form h3,
+.reviews-display h3 {
+    color: var(--accent-light);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    color: #d0d0d0;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    background: rgba(212, 175, 55, 0.05);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    color: #d0d0d0;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--accent-light);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.required {
+    color: #ff6b6b;
+}
+
+.char-count {
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 5px;
+}
+
+.star-rating-input {
+    margin: 15px 0;
+}
+
+.stars-container {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.star-item {
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    opacity: 0.5;
+}
+
+.star-item:hover,
+.star-item.hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.star-item.active {
+    opacity: 1;
+}
+
+.rating-text {
+    color: var(--accent-light);
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.submit-btn,
+.submit-review-btn {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-light) 100%);
+    color: #1a1a2e;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.submit-btn:hover,
+.submit-review-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+}
+
+.form-note {
+    color: #999;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.reviews-list {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.review-card {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(157, 78, 221, 0.1) 100%);
+    border: 1px solid var(--accent-color);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.review-name {
+    color: var(--accent-light);
+    font-size: 1rem;
+}
+
+.review-rating {
+    color: var(--accent-light);
+}
+
+.review-text {
+    color: #d0d0d0;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.review-date {
+    color: #999;
+    font-size: 0.85rem;
+    margin: 10px 0;
+}
+
+.delete-review-btn {
+    background: rgba(255, 107, 107, 0.2);
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.delete-review-btn:hover {
+    background: #ff6b6b;
+    color: white;
+}
+
+.no-reviews {
+    color: #999;
+    text-align: center;
+    padding: 30px;
+}
+
 /* Testimonials Section */
 .testimonials-section {
     padding: 80px 0;
@@ -421,11 +892,14 @@ body {
     .services-section h2,
     .booking-section h2,
     .about-section h2,
-    .testimonials-section h2 {
+    .testimonials-section h2,
+    .reviews-section h2,
+    .astrotherapy-section h2 {
         font-size: 2rem;
     }
 
-    .booking-container {
+    .booking-container,
+    .astrotherapy-content {
         grid-template-columns: 1fr;
     }
 
@@ -434,13 +908,32 @@ body {
     }
 
     .services-grid,
-    .testimonials-grid {
+    .testimonials-grid,
+    .reviews-container {
         grid-template-columns: 1fr;
     }
 
     .whatsapp-btn {
         width: 100%;
         text-align: center;
+    }
+
+    .modal-content {
+        padding: 30px;
+        width: 95%;
+    }
+
+    .modal-header h2 {
+        font-size: 2rem;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+    }
+
+    .modal-whatsapp-btn,
+    .modal-close-btn {
+        width: 100%;
     }
 }
 
@@ -456,7 +949,9 @@ body {
     .services-section h2,
     .booking-section h2,
     .about-section h2,
-    .testimonials-section h2 {
+    .testimonials-section h2,
+    .reviews-section h2,
+    .astrotherapy-section h2 {
         font-size: 1.5rem;
     }
 
@@ -466,5 +961,13 @@ body {
 
     .description {
         font-size: 0.9rem;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-section h3 {
+        font-size: 1.2rem;
     }
 }
