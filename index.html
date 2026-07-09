@@ -108,16 +108,16 @@
                             <label for="service">Service Demandé <span class="required">*</span></label>
                             <select id="service" name="service" required>
                                 <option value="">Sélectionnez un service</option>
-                                <option value="theme-astral">Thème Astral</option>
-                                <option value="consultation">Consultation</option>
-                                <option value="predictions">Prédictions</option>
-                                <option value="compatibilite">Compatibilité Amoureuse</option>
+                                <option value="theme-astral">Thème Astral - 100€</option>
+                                <option value="consultation">Consultation - 100€</option>
+                                <option value="predictions">Prédictions - 100€</option>
+                                <option value="compatibilite">Compatibilité Amoureuse - 100€</option>
                             </select>
                         </div>
 
                         <!-- Bouton Submit -->
-                        <button type="submit" class="submit-btn">📧 Envoyer ma demande</button>
-                        <p class="form-note">Une confirmation sera envoyée à votre email</p>
+                        <button type="submit" class="submit-btn">💬 Envoyer sur WhatsApp</button>
+                        <p class="form-note">Vous serez redirigé vers WhatsApp pour confirmer votre réservation</p>
                     </form>
                 </div>
 
@@ -128,10 +128,10 @@
                     <div class="details">
                         <p><strong>Numéro:</strong> 0753244236</p>
                         <p><strong>Disponibilités:</strong> Lun - Sam, 09h - 21h</p>
-                        <p><strong>Tarifs:</strong> À partir de 500 DA</p>
+                        <p><strong>Tarifs:</strong> 100€ la consultation</p>
                     </div>
 
-                    <a href="https://wa.me/213753244236?text=Bonjour%20Astro%20Lumi%C3%A8re%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20une%20consultation%20d%27astrologie." 
+                    <a href="https://wa.me/330753244236?text=Bonjour%20Astro%20Lumi%C3%A8re%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20une%20consultation%20d%27astrologie." 
                        class="whatsapp-btn" target="_blank">
                         <span class="whatsapp-icon">💬</span> Ouvrir WhatsApp
                     </a>
@@ -217,15 +217,38 @@
                 return;
             }
 
-            // Message de confirmation
-            alert(`✅ Merci ${formData.name}!\n\nVotre rendez-vous a été enregistré pour:\n📅 ${formData.date} à ${formData.time}\n\nNous vous contacterons à ${formData.email} pour confirmer votre réservation.`);
+            // Créer le message WhatsApp avec les données du formulaire
+            const whatsappMessage = `
+🌟 *DEMANDE DE CONSULTATION ASTRO LUMIÈRE* 🌟
 
-            // Vous pouvez envoyer les données à un serveur ici
-            console.log('Données du formulaire:', formData);
+👤 *Nom:* ${formData.name}
+📧 *Email:* ${formData.email}
+📱 *Téléphone:* ${formData.phone}
 
-            // Réinitialiser le formulaire
-            bookingForm.reset();
-            charCount.textContent = '0';
+📅 *Date demandée:* ${formData.date}
+⏰ *Heure demandée:* ${formData.time}
+
+🔮 *Service:* ${formData.service}
+
+📝 *Situation:*
+${formData.situation}
+
+---
+Message envoyé via Astro Lumière
+            `.trim();
+
+            // Encoder le message pour l'URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+
+            // Rediriger vers WhatsApp avec le message
+            const whatsappURL = `https://wa.me/330753244236?text=${encodedMessage}`;
+            window.open(whatsappURL, '_blank');
+
+            // Réinitialiser le formulaire après un court délai
+            setTimeout(() => {
+                bookingForm.reset();
+                charCount.textContent = '0';
+            }, 500);
         });
 
         // Définir la date minimale à aujourd'hui
