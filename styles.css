@@ -1,0 +1,470 @@
+:root {
+    --primary-color: #1a1a2e;
+    --secondary-color: #16213e;
+    --accent-color: #d4af37;
+    --accent-light: #f4d03f;
+    --accent-purple: #9d4edd;
+    --accent-blue: #3c096c;
+    --text-light: #ffffff;
+    --text-dark: #1a1a2e;
+    --gradient-1: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    --gradient-2: linear-gradient(135deg, #9d4edd 0%, #7209b7 50%, #3c096c 100%);
+    --gradient-3: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #e8b923 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--primary-color);
+    color: var(--text-light);
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background: var(--gradient-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.stars-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: twinkle 3s infinite;
+}
+
+.star:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+.star:nth-child(2) { top: 20%; right: 20%; animation-delay: 0.5s; }
+.star:nth-child(3) { top: 40%; left: 30%; animation-delay: 1s; }
+.star:nth-child(4) { top: 60%; right: 15%; animation-delay: 1.5s; }
+.star:nth-child(5) { top: 80%; left: 50%; animation-delay: 2s; }
+.star:nth-child(6) { top: 15%; right: 40%; animation-delay: 0.7s; }
+.star:nth-child(7) { top: 50%; right: 50%; animation-delay: 1.2s; }
+.star:nth-child(8) { top: 70%; left: 20%; animation-delay: 1.8s; }
+.star:nth-child(9) { top: 30%; left: 70%; animation-delay: 2.2s; }
+.star:nth-child(10) { top: 85%; right: 30%; animation-delay: 2.5s; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 10;
+    animation: fadeInDown 1s ease-out;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    background: var(--gradient-3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #e0e0e0;
+    font-weight: 300;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+
+.zodiac-circle {
+    width: 200px;
+    height: 200px;
+    border: 3px solid var(--accent-color);
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    animation: rotate 20s linear infinite;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+}
+
+.zodiac-circle::before {
+    content: '♈ ♉ ♊ ♋ ♌ ♍ ♎ ♏ ♐ ♑ ♒ ♓';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Services Section */
+.services-section {
+    padding: 80px 0;
+    background: var(--primary-color);
+}
+
+.services-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 60px;
+    background: var(--gradient-3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.service-card {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(157, 78, 221, 0.1) 100%);
+    border: 2px solid var(--accent-color);
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+}
+
+.service-card .icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--accent-light);
+}
+
+.service-card p {
+    color: #b0b0b0;
+    line-height: 1.6;
+}
+
+/* Booking Section */
+.booking-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, rgba(157, 78, 221, 0.05) 0%, rgba(60, 9, 108, 0.05) 100%);
+}
+
+.booking-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 60px;
+    background: var(--gradient-3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.booking-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.booking-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--accent-light);
+}
+
+.description {
+    color: #d0d0d0;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+.details {
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 4px solid var(--accent-color);
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+.details p {
+    margin: 12px 0;
+    color: #e0e0e0;
+    font-size: 1.05rem;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    padding: 18px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-icon {
+    margin-right: 10px;
+}
+
+.booking-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.astrology-circle {
+    width: 280px;
+    height: 280px;
+    border: 3px solid var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(157, 78, 221, 0.2) 100%);
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.3), inset 0 0 40px rgba(212, 175, 55, 0.1);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.circle-inner {
+    font-size: 5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* About Section */
+.about-section {
+    padding: 80px 0;
+    background: var(--primary-color);
+    text-align: center;
+}
+
+.about-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    background: var(--gradient-3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.about-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #d0d0d0;
+    margin-bottom: 20px;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, rgba(157, 78, 221, 0.05) 0%, rgba(60, 9, 108, 0.05) 100%);
+}
+
+.testimonials-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 60px;
+    background: var(--gradient-3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(157, 78, 221, 0.1) 100%);
+    border: 2px solid var(--accent-color);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.testimonial-card .stars {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.testimonial-card p {
+    color: #d0d0d0;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.testimonial-card .author {
+    color: var(--accent-light);
+    font-weight: 600;
+    font-style: italic;
+}
+
+/* Footer */
+.footer {
+    background: var(--secondary-color);
+    padding: 40px 0;
+    text-align: center;
+    border-top: 2px solid var(--accent-color);
+}
+
+.footer-content p {
+    margin: 10px 0;
+    color: #b0b0b0;
+}
+
+.social-icons {
+    font-size: 2rem;
+    margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .zodiac-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .services-section h2,
+    .booking-section h2,
+    .about-section h2,
+    .testimonials-section h2 {
+        font-size: 2rem;
+    }
+
+    .booking-container {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-image {
+        order: -1;
+    }
+
+    .services-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .whatsapp-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .services-section h2,
+    .booking-section h2,
+    .about-section h2,
+    .testimonials-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .booking-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .description {
+        font-size: 0.9rem;
+    }
+}
