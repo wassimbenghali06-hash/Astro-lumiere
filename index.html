@@ -26,6 +26,7 @@
         <div class="hero-content">
             <h1 class="title">✨ Astro Lumière ✨</h1>
             <p class="subtitle">Découvrez votre destinée parmi les étoiles</p>
+            <p class="consultant-name">🌟 Consultant : Naceur Benghali 🌟</p>
             <div class="zodiac-circle"></div>
         </div>
     </div>
@@ -84,13 +85,31 @@
                             <input type="tel" id="phone" name="phone" placeholder="0753244236" required>
                         </div>
 
-                        <!-- Date -->
+                        <!-- Date de naissance -->
+                        <div class="form-group">
+                            <label for="birthDate">📅 Date de Naissance <span class="required">*</span></label>
+                            <input type="date" id="birthDate" name="birthDate" required>
+                        </div>
+
+                        <!-- Heure de naissance -->
+                        <div class="form-group">
+                            <label for="birthTime">⏰ Heure de Naissance <span class="required">*</span></label>
+                            <input type="time" id="birthTime" name="birthTime" required>
+                        </div>
+
+                        <!-- Lieu de naissance -->
+                        <div class="form-group">
+                            <label for="birthPlace">📍 Lieu de Naissance <span class="required">*</span></label>
+                            <input type="text" id="birthPlace" name="birthPlace" placeholder="Ville, Pays" required>
+                        </div>
+
+                        <!-- Date du rendez-vous -->
                         <div class="form-group">
                             <label for="date">Date du Rendez-vous <span class="required">*</span></label>
                             <input type="date" id="date" name="date" required>
                         </div>
 
-                        <!-- Heure -->
+                        <!-- Heure du rendez-vous -->
                         <div class="form-group">
                             <label for="time">Heure du Rendez-vous <span class="required">*</span></label>
                             <input type="time" id="time" name="time" required>
@@ -126,6 +145,7 @@
                     <p class="description">Réservez votre consultation d'astrologie directement via WhatsApp. Notre astrologue vous répondra dans les plus brefs délais.</p>
                     
                     <div class="details">
+                        <p><strong>Consultant:</strong> Naceur Benghali</p>
                         <p><strong>Numéro:</strong> 0753244236</p>
                         <p><strong>Disponibilités:</strong> Lun - Sam, 09h - 21h</p>
                         <p><strong>Tarifs:</strong> 100€ la consultation</p>
@@ -147,8 +167,58 @@
         <section class="about-section">
             <h2>À Propos</h2>
             <div class="about-content">
-                <p>Bienvenue chez Astro Lumière, votre guide vers la compréhension des mystères célestes. Depuis des années, nous aidons nos clients à explorer les secrets de l'univers et à découvrir leur chemin de vie.</p>
+                <p>Bienvenue chez Astro Lumière, votre guide vers la compréhension des mystères célestes. Depuis des années, nous aidons nos clients à explorer les secrets de l'univers et découvrir leur véritable potentiel.</p>
                 <p>Notre approche combine la sagesse ancienne de l'astrologie avec une compassion moderne pour vous aider à découvrir votre vrai potentiel.</p>
+            </div>
+        </section>
+
+        <!-- Reviews Section - NOUVEAU -->
+        <section class="reviews-section">
+            <h2>✨ Avis des Consultants ✨</h2>
+            
+            <div class="reviews-container">
+                <!-- Formulaire pour ajouter un avis -->
+                <div class="add-review-form">
+                    <h3>📝 Partagez votre expérience</h3>
+                    <form id="reviewForm" class="form">
+                        <div class="form-group">
+                            <label for="reviewName">Votre Nom <span class="required">*</span></label>
+                            <input type="text" id="reviewName" name="reviewName" placeholder="Jean Dupont" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reviewRating">Note <span class="required">*</span></label>
+                            <div class="star-rating">
+                                <input type="radio" name="rating" value="5" id="star5">
+                                <label for="star5" class="star">⭐</label>
+                                <input type="radio" name="rating" value="4" id="star4">
+                                <label for="star4" class="star">⭐</label>
+                                <input type="radio" name="rating" value="3" id="star3">
+                                <label for="star3" class="star">⭐</label>
+                                <input type="radio" name="rating" value="2" id="star2">
+                                <label for="star2" class="star">⭐</label>
+                                <input type="radio" name="rating" value="1" id="star1">
+                                <label for="star1" class="star">⭐</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reviewText">Votre Avis <span class="required">*</span></label>
+                            <textarea id="reviewText" name="reviewText" rows="4" placeholder="Partagez votre expérience avec Naceur Benghali..." maxlength="300" required></textarea>
+                            <span class="char-count"><span id="reviewCharCount">0</span>/300</span>
+                        </div>
+
+                        <button type="submit" class="submit-review-btn">✨ Publier mon Avis ✨</button>
+                    </form>
+                </div>
+
+                <!-- Affichage des avis -->
+                <div class="reviews-display">
+                    <h3>�� Avis Reçus</h3>
+                    <div id="reviewsList" class="reviews-list">
+                        <!-- Les avis seront affichés ici dynamiquement -->
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -179,7 +249,7 @@
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2024 Astro Lumière. Tous droits réservés.</p>
-            <p>WhatsApp: <strong>0753244236</strong></p>
+            <p>Consultant: <strong>Naceur Benghali</strong> | WhatsApp: <strong>0753244236</strong></p>
             <div class="social-icons">
                 <span>🌙 ⭐ ☀️</span>
             </div>
@@ -187,7 +257,9 @@
     </footer>
 
     <script>
-        // Compteur de caractères pour la situation
+        // ============================================
+        // GESTION DU FORMULAIRE DE RÉSERVATION
+        // ============================================
         const situationField = document.getElementById('situation');
         const charCount = document.getElementById('charCount');
 
@@ -195,29 +267,28 @@
             charCount.textContent = this.value.length;
         });
 
-        // Validation et soumission du formulaire
         const bookingForm = document.getElementById('bookingForm');
         bookingForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Récupérer les données du formulaire
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
+                birthDate: document.getElementById('birthDate').value,
+                birthTime: document.getElementById('birthTime').value,
+                birthPlace: document.getElementById('birthPlace').value,
                 date: document.getElementById('date').value,
                 time: document.getElementById('time').value,
                 situation: document.getElementById('situation').value,
                 service: document.getElementById('service').value
             };
 
-            // Valider que la situation n'est pas vide
             if (formData.situation.trim().length === 0) {
                 alert('⚠️ Veuillez expliquer votre situation. Ce champ est obligatoire.');
                 return;
             }
 
-            // Créer le message WhatsApp avec les données du formulaire
             const whatsappMessage = `
 🌟 *DEMANDE DE CONSULTATION ASTRO LUMIÈRE* 🌟
 
@@ -225,10 +296,15 @@
 📧 *Email:* ${formData.email}
 📱 *Téléphone:* ${formData.phone}
 
+🔮 *DONNÉES ASTROLOGIQUES:*
+📅 *Date de Naissance:* ${formData.birthDate}
+⏰ *Heure de Naissance:* ${formData.birthTime}
+📍 *Lieu de Naissance:* ${formData.birthPlace}
+
 📅 *Date demandée:* ${formData.date}
 ⏰ *Heure demandée:* ${formData.time}
 
-🔮 *Service:* ${formData.service}
+🎯 *Service:* ${formData.service}
 
 📝 *Situation:*
 ${formData.situation}
@@ -237,24 +313,114 @@ ${formData.situation}
 Message envoyé via Astro Lumière
             `.trim();
 
-            // Encoder le message pour l'URL
             const encodedMessage = encodeURIComponent(whatsappMessage);
-
-            // Rediriger vers WhatsApp avec le message
             const whatsappURL = `https://wa.me/330753244236?text=${encodedMessage}`;
             window.open(whatsappURL, '_blank');
 
-            // Réinitialiser le formulaire après un court délai
             setTimeout(() => {
                 bookingForm.reset();
                 charCount.textContent = '0';
             }, 500);
         });
 
-        // Définir la date minimale à aujourd'hui
         const dateInput = document.getElementById('date');
         const today = new Date().toISOString().split('T')[0];
         dateInput.setAttribute('min', today);
+
+        // ============================================
+        // GESTION DE LA SECTION D'AVIS
+        // ============================================
+        const reviewForm = document.getElementById('reviewForm');
+        const reviewText = document.getElementById('reviewText');
+        const reviewCharCount = document.getElementById('reviewCharCount');
+        const reviewsList = document.getElementById('reviewsList');
+
+        // Compter les caractères
+        reviewText.addEventListener('input', function() {
+            reviewCharCount.textContent = this.value.length;
+        });
+
+        // Charger les avis depuis localStorage
+        function loadReviews() {
+            const reviews = JSON.parse(localStorage.getItem('astroLumiereReviews')) || [];
+            displayReviews(reviews);
+        }
+
+        // Afficher les avis
+        function displayReviews(reviews) {
+            reviewsList.innerHTML = '';
+            
+            if (reviews.length === 0) {
+                reviewsList.innerHTML = '<p class="no-reviews">Aucun avis pour le moment. Soyez le premier ! 🌟</p>';
+                return;
+            }
+
+            reviews.forEach((review, index) => {
+                const reviewCard = document.createElement('div');
+                reviewCard.className = 'review-card';
+                reviewCard.innerHTML = `
+                    <div class="review-header">
+                        <h4 class="review-name">👤 ${review.name}</h4>
+                        <div class="review-rating">${'⭐'.repeat(review.rating)}</div>
+                    </div>
+                    <p class="review-text">"${review.text}"</p>
+                    <p class="review-date">📅 ${review.date}</p>
+                    <button class="delete-review-btn" data-index="${index}">🗑️ Supprimer</button>
+                `;
+                reviewsList.appendChild(reviewCard);
+            });
+
+            // Ajouter les événements de suppression
+            document.querySelectorAll('.delete-review-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = this.dataset.index;
+                    deleteReview(index);
+                });
+            });
+        }
+
+        // Ajouter un avis
+        reviewForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const rating = document.querySelector('input[name="rating"]:checked');
+            if (!rating) {
+                alert('⚠️ Veuillez sélectionner une note');
+                return;
+            }
+
+            const newReview = {
+                name: document.getElementById('reviewName').value,
+                rating: parseInt(rating.value),
+                text: reviewText.value,
+                date: new Date().toLocaleDateString('fr-FR')
+            };
+
+            const reviews = JSON.parse(localStorage.getItem('astroLumiereReviews')) || [];
+            reviews.unshift(newReview);
+            localStorage.setItem('astroLumiereReviews', JSON.stringify(reviews));
+
+            displayReviews(reviews);
+            reviewForm.reset();
+            reviewCharCount.textContent = '0';
+            document.querySelector('input[name="rating"]:checked').checked = false;
+
+            // Animation de succès
+            alert('✨ Merci ! Votre avis a été publié avec succès ! ✨');
+        });
+
+        // Supprimer un avis
+        function deleteReview(index) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer cet avis ?')) {
+                const reviews = JSON.parse(localStorage.getItem('astroLumiereReviews')) || [];
+                reviews.splice(index, 1);
+                localStorage.setItem('astroLumiereReviews', JSON.stringify(reviews));
+                displayReviews(reviews);
+            }
+        }
+
+        // Charger les avis au démarrage
+        loadReviews();
     </script>
 </body>
 </html>
