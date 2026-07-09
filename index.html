@@ -12,8 +12,17 @@
 <body>
     <!-- Hero Section avec couverture -->
     <div class="hero-section">
-        <div class="stars-background" id="planets-container">
-            <!-- Les planètes 3D seront rendues ici -->
+        <div class="stars-background">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
         </div>
         
         <div class="hero-content">
@@ -58,9 +67,9 @@
             <h2>🌟 L'Astrothérapie 🌟</h2>
             <div class="astrotherapy-content">
                 <div class="astrotherapy-text">
-                    <p><strong>L'Astrothérapie</strong> est une approche holistique qui combine les principes ancestraux de l'astrologie avec les techniques de développement personnel et de bien[...]
+                    <p><strong>L'Astrothérapie</strong> est une approche holistique qui combine les principes ancestraux de l'astrologie avec les techniques de développement personnel et de bien-être.</p>
                     
-                    <p>Cette pratique unique utilise votre thème astral personnel comme guide pour comprendre votre essence profonde, vos forces innées et vos défis de vie. En analysant la posi[...]
+                    <p>Cette pratique unique utilise votre thème astral personnel comme guide pour comprendre votre essence profonde, vos forces innées et vos défis de vie.</p>
                     
                     <h3>Les Bénéfices de l'Astrothérapie :</h3>
                     <ul class="benefits-list">
@@ -72,7 +81,10 @@
                         <li>🌟 Harmoniser l'énergie corporelle et émotionnelle</li>
                     </ul>
                     
-                    <p><strong>Naceur Benghali</strong>, consultant en astrothérapie, vous accompagne dans ce voyage de découverte intérieure. Grâce à son expertise et sa compassion, il vous [...]
+                    <p><strong>Naceur Benghali</strong>, consultant en astrothérapie, vous accompagne dans ce voyage de découverte intérieure. Grâce à son expertise et sa compassion, il vous aide à révéler vos ressources cachées.</p>
+                    
+                    <!-- Bouton pour ouvrir la description complète -->
+                    <button class="read-more-btn" id="openAstrotherapyModal">📖 Lire la description complète</button>
                 </div>
 
                 <div class="astrotherapy-visual">
@@ -187,7 +199,7 @@
         <section class="about-section">
             <h2>À Propos</h2>
             <div class="about-content">
-                <p>Bienvenue chez Astro Lumière, votre guide vers la compréhension des mystères célestes. Depuis des années, nous aidons nos clients à explorer les secrets de l'univers et d[...]
+                <p>Bienvenue chez Astro Lumière, votre guide vers la compréhension des mystères célestes. Depuis des années, nous aidons nos clients à explorer les secrets de l'univers et découvrir leur vrai potentiel.</p>
                 <p>Notre approche combine la sagesse ancienne de l'astrologie avec une compassion moderne pour vous aider à découvrir votre vrai potentiel.</p>
             </div>
         </section>
@@ -273,6 +285,58 @@
         </section>
     </main>
 
+    <!-- Modal pour la description complète de l'Astrothérapie -->
+    <div id="astrotherapyModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeAstrotherapyModal">&times;</button>
+            <div class="modal-header">
+                <h2>🌟 L'Astrothérapie 🌟</h2>
+                <p class="modal-subtitle">Une approche transformatrice pour mieux se connaître</p>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>Ce que n'est pas l'Astrologie</h3>
+                    <p>L'astrologie que je pratique n'est pas de la voyance. C'est une lecture symbolique fondée sur des calculs précis liés à votre date, votre heure et votre lieu de naissance. Dans l'univers, tout suit un ordre : si la Terre était un peu plus proche du Soleil, la chaleur serait insupportable ; un peu plus loin, elle gèlerait. Sa position et sa vitesse sont d'une grande précision. De la même manière, votre naissance s'inscrit à un moment précis qui possède sa propre signification.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>L'Astrothérapie : Mon Approche</h3>
+                    <p>Mon approche, l'<strong>Astrothérapie</strong>, unit l'astrologie traditionnelle à mon expérience thérapeutique. Elle permet de révéler vos ressources, de comprendre certains blocages émotionnels et les schémas acquis depuis l'enfance, afin de distinguer le conditionnement de votre nature profonde.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Comment Je Peux Vous Aider</h3>
+                    <p>Je ne prédis pas votre avenir : je vous aide à mieux vous connaître, à retrouver votre liberté intérieure et à utiliser pleinement les outils que la vie a déjà placés en vous. Le thème montre des possibilités ; le choix vous appartient toujours.</p>
+                </div>
+
+                <div class="modal-highlight">
+                    <p>✨ <strong>Votre destinée est entre vos mains. Je suis là pour vous éclairer sur le chemin.</strong> ✨</p>
+                </div>
+
+                <div class="modal-benefits">
+                    <h3>Ce que vous découvrirez</h3>
+                    <ul>
+                        <li>🌙 Votre nature profonde et vos forces innées</li>
+                        <li>⭐ Vos défis de vie et comment les transformer</li>
+                        <li>💫 Vos ressources cachées et talents particuliers</li>
+                        <li>🔮 Comment surmonter vos blocages émotionnels</li>
+                        <li>✨ Votre liberté intérieure authentique</li>
+                        <li>🌟 Le timing cosmique pour vos décisions importantes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <a href="https://wa.me/330753244236?text=Bonjour%20Astro%20Lumi%C3%A8re%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20l%27Astroth%C3%A9rapie" 
+                   class="modal-whatsapp-btn" target="_blank">
+                    📱 Me contacter via WhatsApp
+                </a>
+                <button class="modal-close-btn" id="closeAstrotherapyModal2">Fermer</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
@@ -284,9 +348,8 @@
         </div>
     </footer>
 
-    <!-- Script des Planètes 3D -->
+    <!-- Scripts -->
     <script src="planets.js"></script>
-
     <script>
         // ============================================
         // GESTION DU FORMULAIRE DE RÉSERVATION
@@ -357,6 +420,36 @@ Message envoyé via Astro Lumière
         const dateInput = document.getElementById('date');
         const today = new Date().toISOString().split('T')[0];
         dateInput.setAttribute('min', today);
+
+        // ============================================
+        // GESTION DE LA MODAL ASTROTHÉRAPIE
+        // ============================================
+        const astrotherapyModal = document.getElementById('astrotherapyModal');
+        const openModalBtn = document.getElementById('openAstrotherapyModal');
+        const closeModalBtns = [
+            document.getElementById('closeAstrotherapyModal'),
+            document.getElementById('closeAstrotherapyModal2')
+        ];
+
+        openModalBtn.addEventListener('click', function() {
+            astrotherapyModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeModalBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                astrotherapyModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Fermer la modal en cliquant en dehors
+        astrotherapyModal.addEventListener('click', function(e) {
+            if (e.target === astrotherapyModal) {
+                astrotherapyModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
 
         // ============================================
         // GESTION DE LA SECTION D'AVIS AVEC ÉTOILES
