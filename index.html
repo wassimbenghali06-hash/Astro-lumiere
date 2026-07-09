@@ -63,23 +63,79 @@
         <section class="booking-section">
             <h2>Prenez Rendez-vous</h2>
             <div class="booking-container">
+                <div class="booking-form">
+                    <h3>📝 Formulaire de Réservation</h3>
+                    <form id="bookingForm" class="form">
+                        <!-- Nom -->
+                        <div class="form-group">
+                            <label for="name">Nom Complet <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" value="Naceur Benghali" required>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <!-- Téléphone -->
+                        <div class="form-group">
+                            <label for="phone">Téléphone <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="+33 6 12 34 56 78" required>
+                        </div>
+
+                        <!-- Date -->
+                        <div class="form-group">
+                            <label for="date">Date du Rendez-vous <span class="required">*</span></label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+
+                        <!-- Heure -->
+                        <div class="form-group">
+                            <label for="time">Heure du Rendez-vous <span class="required">*</span></label>
+                            <input type="time" id="time" name="time" required>
+                        </div>
+
+                        <!-- Situation / Problématique -->
+                        <div class="form-group">
+                            <label for="situation">Décrivez votre situation <span class="required">*</span></label>
+                            <textarea id="situation" name="situation" rows="5" placeholder="Expliquez votre situation, vos questions, vos préoccupations..." required></textarea>
+                            <span class="char-count"><span id="charCount">0</span>/500</span>
+                        </div>
+
+                        <!-- Service -->
+                        <div class="form-group">
+                            <label for="service">Service Demandé <span class="required">*</span></label>
+                            <select id="service" name="service" required>
+                                <option value="">Sélectionnez un service</option>
+                                <option value="theme-astral">Thème Astral</option>
+                                <option value="consultation">Consultation</option>
+                                <option value="predictions">Prédictions</option>
+                                <option value="compatibilite">Compatibilité Amoureuse</option>
+                            </select>
+                        </div>
+
+                        <!-- Bouton Submit -->
+                        <button type="submit" class="submit-btn">📧 Envoyer ma demande</button>
+                        <p class="form-note">Une confirmation sera envoyée à votre email</p>
+                    </form>
+                </div>
+
                 <div class="booking-info">
                     <h3>📱 Contactez-nous sur WhatsApp</h3>
                     <p class="description">Réservez votre consultation d'astrologie directement via WhatsApp. Notre astrologue vous répondra dans les plus brefs délais.</p>
                     
                     <div class="details">
-                        <p><strong>Numéro:</strong> +213 753 244 236</p>
+                        <p><strong>Numéro:</strong> +33 6 12 34 56 78</p>
                         <p><strong>Disponibilités:</strong> Lun - Sam, 09h - 21h</p>
-                        <p><strong>Tarifs:</strong> À partir de 500 DA</p>
+                        <p><strong>Tarifs:</strong> À partir de 50 €</p>
                     </div>
 
-                    <a href="https://wa.me/213753244236?text=Bonjour%20Astro%20Lumi%C3%A8re%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20une%20consultation%20d%27astrologie." 
+                    <a href="https://wa.me/33612345678?text=Bonjour%20Astro%20Lumi%C3%A8re%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20une%20consultation%20d%27astrologie." 
                        class="whatsapp-btn" target="_blank">
                         <span class="whatsapp-icon">💬</span> Ouvrir WhatsApp
                     </a>
-                </div>
 
-                <div class="booking-image">
                     <div class="astrology-circle">
                         <div class="circle-inner">🌟</div>
                     </div>
@@ -91,7 +147,7 @@
         <section class="about-section">
             <h2>À Propos</h2>
             <div class="about-content">
-                <p>Bienvenue chez Astro Lumière, votre guide vers la compréhension des mystères célestes. Depuis des années, nous aidons nos clients à explorer les secrets de l'univers et à trouver leur chemin parmi les étoiles.</p>
+                <p>Bienvenue chez Astro Lumière, votre guide vers la compréhension des mystères célestes. Depuis des années, nous aidons nos clients à explorer les secrets de l'univers et à découvrir leur chemin de vie.</p>
                 <p>Notre approche combine la sagesse ancienne de l'astrologie avec une compassion moderne pour vous aider à découvrir votre vrai potentiel.</p>
             </div>
         </section>
@@ -123,11 +179,59 @@
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2024 Astro Lumière. Tous droits réservés.</p>
-            <p>WhatsApp: <strong>+213 753 244 236</strong></p>
+            <p>WhatsApp: <strong>+33 6 12 34 56 78</strong></p>
             <div class="social-icons">
                 <span>🌙 ⭐ ☀️</span>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Compteur de caractères pour la situation
+        const situationField = document.getElementById('situation');
+        const charCount = document.getElementById('charCount');
+
+        situationField.addEventListener('input', function() {
+            charCount.textContent = this.value.length;
+        });
+
+        // Validation et soumission du formulaire
+        const bookingForm = document.getElementById('bookingForm');
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Récupérer les données du formulaire
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value,
+                situation: document.getElementById('situation').value,
+                service: document.getElementById('service').value
+            };
+
+            // Valider que la situation n'est pas vide
+            if (formData.situation.trim().length === 0) {
+                alert('⚠️ Veuillez expliquer votre situation. Ce champ est obligatoire.');
+                return;
+            }
+
+            // Message de confirmation
+            alert(`✅ Merci ${formData.name}!\n\nVotre rendez-vous a été enregistré pour:\n📅 ${formData.date} à ${formData.time}\n\nNous vous contacterons à ${formData.email} pour confirmer votre réservation.`);
+
+            // Vous pouvez envoyer les données à un serveur ici
+            console.log('Données du formulaire:', formData);
+
+            // Réinitialiser le formulaire
+            bookingForm.reset();
+            charCount.textContent = '0';
+        });
+
+        // Définir la date minimale à aujourd'hui
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    </script>
 </body>
 </html>
