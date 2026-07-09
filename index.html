@@ -65,9 +65,9 @@
             <h2>🌟 L'Astrothérapie 🌟</h2>
             <div class="astrotherapy-content">
                 <div class="astrotherapy-text">
-                    <p><strong>L'Astrothérapie</strong> est une approche holistique qui combine les principes ancestraux de l'astrologie avec les techniques de développement personnel et de bien-être émotionnel.</p>
+                    <p><strong>L'Astrothérapie</strong> est une approche holistique qui combine les principes ancestraux de l'astrologie avec les techniques de développement personnel et de bien[...]
                     
-                    <p>Cette pratique unique utilise votre thème astral personnel comme guide pour comprendre votre essence profonde, vos forces innées et vos défis de vie. En analysant la position des planètes au moment de votre naissance, l'astrothérapie révèle les patterns énergétiques qui influencent votre comportement, vos émotions et votre destinée.</p>
+                    <p>Cette pratique unique utilise votre thème astral personnel comme guide pour comprendre votre essence profonde, vos forces innées et vos défis de vie. En analysant la posi[...]
                     
                     <h3>Les Bénéfices de l'Astrothérapie :</h3>
                     <ul class="benefits-list">
@@ -79,7 +79,7 @@
                         <li>🌟 Harmoniser l'énergie corporelle et émotionnelle</li>
                     </ul>
                     
-                    <p><strong>Naceur Benghali</strong>, consultant en astrothérapie, vous accompagne dans ce voyage de découverte intérieure. Grâce à son expertise et sa compassion, il vous aide à décoder les messages des astres et à créer une vie plus consciente et authentique.</p>
+                    <p><strong>Naceur Benghali</strong>, consultant en astrothérapie, vous accompagne dans ce voyage de découverte intérieure. Grâce à son expertise et sa compassion, il vous [...]
                 </div>
 
                 <div class="astrotherapy-visual">
@@ -194,7 +194,7 @@
         <section class="about-section">
             <h2>À Propos</h2>
             <div class="about-content">
-                <p>Bienvenue chez Astro Lumière, votre guide vers la compréhension des mystères célestes. Depuis des années, nous aidons nos clients à explorer les secrets de l'univers et découvrir leur véritable potentiel.</p>
+                <p>Bienvenue chez Astro Lumière, votre guide vers la compréhension des mystères célestes. Depuis des années, nous aidons nos clients à explorer les secrets de l'univers et d[...]
                 <p>Notre approche combine la sagesse ancienne de l'astrologie avec une compassion moderne pour vous aider à découvrir votre vrai potentiel.</p>
             </div>
         </section>
@@ -208,6 +208,14 @@
                 <div class="add-review-form">
                     <h3>📝 Partagez votre expérience</h3>
                     <form id="reviewForm" class="form">
+                        <!-- Checkbox Anonyme -->
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="anonymousCheckbox" name="anonymous">
+                                <span class="checkbox-text">👤 Rester anonyme</span>
+                            </label>
+                        </div>
+
                         <div class="form-group">
                             <label for="reviewName">Votre Nom <span class="required">*</span></label>
                             <input type="text" id="reviewName" name="reviewName" placeholder="Jean Dupont" required>
@@ -363,6 +371,22 @@ Message envoyé via Astro Lumière
         const reviewsList = document.getElementById('reviewsList');
         const ratingValue = document.getElementById('ratingValue');
         const ratingText = document.getElementById('ratingText');
+        const anonymousCheckbox = document.getElementById('anonymousCheckbox');
+        const reviewNameInput = document.getElementById('reviewName');
+
+        // Gérer la case anonyme
+        anonymousCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                reviewNameInput.value = 'Avis Anonyme';
+                reviewNameInput.disabled = true;
+                reviewNameInput.style.opacity = '0.6';
+            } else {
+                reviewNameInput.value = '';
+                reviewNameInput.disabled = false;
+                reviewNameInput.style.opacity = '1';
+                reviewNameInput.focus();
+            }
+        });
 
         // Compter les caractères
         reviewText.addEventListener('input', function() {
@@ -425,9 +449,13 @@ Message envoyé via Astro Lumière
                 const reviewCard = document.createElement('div');
                 reviewCard.className = 'review-card';
                 const stars = '⭐'.repeat(review.rating);
+                
+                // Icône anonyme si anonyme
+                const nameDisplay = review.anonymous ? '👻 ' + review.name : '👤 ' + review.name;
+                
                 reviewCard.innerHTML = `
                     <div class="review-header">
-                        <h4 class="review-name">👤 ${review.name}</h4>
+                        <h4 class="review-name">${nameDisplay}</h4>
                         <div class="review-rating">${stars}</div>
                     </div>
                     <p class="review-text">"${review.text}"</p>
@@ -460,7 +488,8 @@ Message envoyé via Astro Lumière
                 name: document.getElementById('reviewName').value,
                 rating: rating,
                 text: reviewText.value,
-                date: new Date().toLocaleDateString('fr-FR')
+                date: new Date().toLocaleDateString('fr-FR'),
+                anonymous: anonymousCheckbox.checked
             };
 
             const reviews = JSON.parse(localStorage.getItem('astroLumiereReviews')) || [];
@@ -473,6 +502,9 @@ Message envoyé via Astro Lumière
             ratingValue.value = '0';
             ratingText.textContent = 'Cliquez pour noter';
             starItems.forEach(s => s.classList.remove('active'));
+            anonymousCheckbox.checked = false;
+            reviewNameInput.disabled = false;
+            reviewNameInput.style.opacity = '1';
 
             // Animation de succès
             alert('✨ Merci ! Votre avis a été publié avec succès ! ✨');
